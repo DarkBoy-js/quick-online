@@ -35,11 +35,10 @@ dbo.subtract("math", 25)
 // 50 > 25
 dbo.delete("math")
 // 25 > null
-// sorry for these trash exms
 ```
  
 ## Why quickonline
 - Fast and easy to use
-- This Package Is Made With 💖 By ! Darkboy🍭#9966 + AzizJaber.#5414
+- This Package Is Made With 💖 By ! Darkboy🍭#9966 + AzizJaber.#5414 + Sujal Goel#0001
 
 
