@@ -1,44 +1,60 @@
-# quickonline
-- __Made For quick.db database to make it online__
-- Report Bugs, Errors, Problems In [Support Server](https://discord.gg/devs)
+### quickonline
++ An online version of **quick.db**.
++ For any **questions**, **issues** or **reports**, visit our **[support server!](https://discord.gg/devs)**
 
-## Usage 📕
-- __starts ahost (use glitch or repl.it)__
- ```js
-const quickonline = require('quickonline')
-let serverdata = {
-    port: 8080, // port
-    username: "darky", //  Database username (EX)
-    password: "omg" // database password (EX)
-}
-const host = new quickonline.host(serverdata) // port
-host.start() // save the url of the project so u can use it on ur bot or whatever
-```
-- __Simple Exmaples__
+# How-To-Use 📚 
 ```js
-const quickonline = require('quickonline')
-let serverdata = {
-    url: "database url here", // database url
-    username: "darky", //  Database username (EX)
-    password: "omg" // database password (EX)
-}
 
-const dbo = new quickonline.bot(serverdata)
+  const quickonline = require("quickonline"); // Requiring our package.
 
-dbo.set('wow', "hi")
-// null > hi
-console.log(await dbo.get("wow"))
-// hi
-dbo.add("math", 50)
-// null > 50
-dbo.subtract("math", 25)
-// 50 > 25
-dbo.delete("math")
-// 25 > null
+  const server = {
+     port: 8080, // The port key.
+     username: "quick", //  Username credentials.
+     password: "online" // Password credentials.
+  };
+
+  const host = new quickonline.host(server); // Defining the variable for our host.
+  host.start(); // Starting up the host and saving it.
+
 ```
- 
-## Why quickonline
-- Fast and easy to use
-- This Package Is Made With 💖 By ! Darkboy🍭#9966 + AzizJaber.#5414 + Sujal Goel#0001
 
+# Examples ✏️
+```js
 
+  const quickonline = require('quickonline'); // Requiring our package.
+
+  const server = {
+    url: "database_url", // Our database URL for connecting.
+    username: "quick", // Username credentials.
+    password: "online" // Password credentials.
+  };
+
+  const dbo = new quickonline.bot(server);
+
+  dbo.set('wow', "hi");
+    // Setting "hi" for the "wow" variable in the database.
+  console.log(await dbo.get("wow"))
+    // Logging the variable we just set, this will print "hi".
+  dbo.set("math", 25);
+    // Setting the number "25" for the "math" variable in the database.
+  dbo.add("math", 50);
+    // Adding "50" to the math variable, the new value will be "75".
+  dbo.subtract("math", 25);
+    // Subtracting "25" from the "math" variable, the new value will be "50".
+  dbo.delete("math");
+    // Deleting the "math" variable from the database, so it's value no longer exists.
+
+```
+
+# Reasons **Why** 📋
++ **Fast**, **simple** and **easy** to use.
++ **Quick** setup, **no** hastle.
++ An upcoming website dedicated to **managing your databases**.
+
+# Creators 🎀
++ ! Darkboy🍭#9966
++ AzizJaber.#5414
++ Sujal Goel#0001
++ Lebyy_Dev#0899
+
+__Thanks To extase#0001 for making readme__
