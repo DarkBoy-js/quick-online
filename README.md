@@ -8,7 +8,7 @@
 [![license](https://img.shields.io/github/license/DarkBoy-js/quick-online)](https://github.com/DarkBoy-js/quick-online/blob/main/LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/darkboy-js/quick-online/badge)](https://www.codefactor.io/repository/github/darkboy-js/quick-online)
 
-> An online version of **quick.db**
+> An online version of **quick.db** to store data online
 
 ## How to use 📚
 
