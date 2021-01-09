@@ -558,7 +558,7 @@ class host {
     });
 
     // For unknown routes
-    app.get('*', function (_, res) {
+    app.get('*', function(_, res) {
       res.set('Content-Type', 'application/json');
       return res.send(JSON.stringify(variable.hello));
     });
