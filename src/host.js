@@ -1,9 +1,9 @@
 class host {
   constructor(data) {
-    if (!data) throw new Error("Missing data array need help? http://discord.gg/devs");
+    if (!data) throw new Error("Missing data array need help? http://db.quickdevs.studio/discord");
     if (!data.port) data.port = 8080
-    if (!data.username) throw new Error("Missing Username,, need help? join http://discord.gg/devs")
-    if (!data.password) throw new Error("Missing Password, need help? join http://discord.gg/devs")
+    if (!data.username) throw new Error("Missing Username,, need help? join http://db.quickdevs.studio/discord")
+    if (!data.password) throw new Error("Missing Password, need help? join http://db.quickdevs.studio/discord")
     this.port = data.port
     this.username = data.username
     this.password = data.password
@@ -558,7 +558,7 @@ class host {
     });
 
     // For unknown routes
-    app.get('*', function(_, res) {
+    app.get('*', function (_, res) {
       res.set('Content-Type', 'application/json');
       return res.send(JSON.stringify(variable.hello));
     });
