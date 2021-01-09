@@ -2,10 +2,10 @@ module.exports = {
     success: {
         success: "true",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     hello: {
@@ -14,10 +14,10 @@ module.exports = {
     home: {
         success: "true",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         },
         creators: {
             1: "! Darkboy🍭#9966",
@@ -36,10 +36,10 @@ module.exports = {
             }
         },
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     invalid_username: {
@@ -52,10 +52,10 @@ module.exports = {
             }
         },
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     no_password: {
@@ -68,10 +68,10 @@ module.exports = {
             }
         },
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     invalid_password: {
@@ -84,10 +84,10 @@ module.exports = {
             }
         },
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     no_value: {
@@ -100,10 +100,10 @@ module.exports = {
             }
         },
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     no_key: {
@@ -116,100 +116,100 @@ module.exports = {
             }
         },
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     isNaN: {
         success: "false",
         message: "The value must be a number",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     noNaN: {
         success: "false",
         message: "The key must contain a number value",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     data_added: {
         success: "true",
         message: "Successfully added the requested data",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     data_deleted: {
         success: "true",
         message: "Successfully deleted the requested data",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     data_subtracted: {
         success: "true",
         message: "Successfully removed the requested data",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     has_data: {
         success: "true",
         message: "This key contain some sort of data",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     has_no_data: {
         success: "true",
         message: "This key does not contain any sort of data",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     no_object: {
         success: "false",
         message: "The data cannot be pushed into a non object",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     },
     no_array: {
         success: "false",
         message: "The target must be an array",
         links: {
-            website: "https://quickdevs.studio/",
-            documentaion: "https://docs.quickonline.js.org",
+            website: "http://db.quickdevs.studio/",
+            documentaion: "http://docs.db.quickdevs.studio",
             github: "https://github.com/DarkBoy-js/quick-online",
-            discord: "https://discord.gg/devs"
+            discord: "http://db.quickdevs.studio/discord"
         }
     }
 }
