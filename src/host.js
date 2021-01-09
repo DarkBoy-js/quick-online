@@ -545,7 +545,7 @@ class host {
         res.set('Content-Type', 'application/json');
         return res.send(JSON.stringify(variable.no_password, null, 2));
       }
-      if (password !== this.password) {
+      if (password != this.password) {
         res.set('Content-Type', 'application/json');
         return res.send(JSON.stringify(variable.invalid_password, null, 2));
       }
