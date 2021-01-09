@@ -3,9 +3,9 @@
 # Quick Online
 
 [![discord](https://img.shields.io/discord/788857247337938945.svg?logo=discord&colorB=7289DA)](http://db.quickdevs.studio/discord)
-[![website](https://img.shields.io/website?down_color=ff0000&down_message=offline&up_color=00ff00&up_message=online&url=https://db.quickdevs.studio)(https://https://db.quickdevs.studio)]
-[![npm](https://img.shields.io/npm/v/quickonline)(https://npmjs.org/quickonline)]
-[![license](https://img.shields.io/github/license/DarkBoy-js/quick-online)(https://github.com/DarkBoy-js/quick-online/blob/main/LICENSE)]
+[![website](https://img.shields.io/website?down_color=ff0000&down_message=offline&up_color=00ff00&up_message=online&url=https://db.quickdevs.studio)](https://https://db.quickdevs.studio)
+[![npm](https://img.shields.io/npm/v/quickonline)](https://npmjs.org/quickonline)
+[![license](https://img.shields.io/github/license/DarkBoy-js/quick-online)](https://github.com/DarkBoy-js/quick-online/blob/main/LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/darkboy-js/quick-online/badge)](https://www.codefactor.io/repository/github/darkboy-js/quick-online)
 
 > An online version of **quick.db**
