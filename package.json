@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/DarkBoy-js/quick-online/issues"
   },
-  "homepage": "https://quickonline.js.org",
+  "homepage": "https://db.quickdevs.studio/",
   "dependencies": {
     "express": "^4.17.1",
     "quick.db": "^7.1.3",
