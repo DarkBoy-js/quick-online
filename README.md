@@ -1,7 +1,13 @@
-<h1 align="center"> Quick Online</h1>
+<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Atlanta" src="https://cdn.discordapp.com/attachments/796686273485209630/797501871182315531/quickonline.png"> 
+ 
+# Quick Online
 
-- An online version of **quick.db**.
-- For any **query**, **issue** or **report**. You can mind visiting our **[Discord support server.](https://discord.gg/devs)**
+[![](https://img.shields.io/discord/788857247337938945.svg?logo=discord&colorB=7289DA)](http://db.quickdevs.studio/discord)
+![](https://img.shields.io/website?down_color=ff0000&down_message=offline&up_color=00ff00&up_message=online&url=https://quickdevs.studio)
+![](https://img.shields.io/github/commit-activity/m/DarkBoy-js/quick-online)
+[![CodeFactor](https://www.codefactor.io/repository/github/darkboy-js/quick-online/badge)](https://www.codefactor.io/repository/github/darkboy-js/quick-online)
+
+> An online version of **quick.db**
 
 ## How to use 📚
 
@@ -78,8 +84,8 @@ dbo.ping(); // returns your database latency.
 <details>
 <summary>Note</summary>
 
-- You can ignore this if not using [**repl.it**](https://repl.it) or [**glitch.com**](https://glitch.com)
-- For those who are using [**repl.it**](https://repl.it) or [**glitch.com**](https://glitch.com) then you can use any of the following uptime service to uptime your database. So, that it won't go to sleep.
+- You can ignore this if not using **repl.it** or **glitch.com**.
+- For those who are using **repl.it** or **glitch.com** then you can use any of the following uptime service to uptime your database. So, that it won't go to sleep.
   - https://uptime.sujalgoel.ml/
   - https://uptimerobot.com/
 
