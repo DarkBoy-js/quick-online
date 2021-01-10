@@ -83,7 +83,7 @@ dbo.ping(); // returns your database latency.
 - Lebyy_Dev#0899
 
 <details>
-<summary>Note</summary>
+<summary>Note:</summary>
 
 - You can ignore this if not using **repl.it** or **glitch.com**.
 - For those who are using **repl.it** or **glitch.com** then you can use any of the following uptime service to uptime your database. So, that it won't go to sleep.
