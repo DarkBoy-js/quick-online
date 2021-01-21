@@ -1,4 +1,4 @@
-const superagent = require('superagent');
+const fetch = require('node-fetch');
 
 class bot {
 	constructor(data) {
@@ -22,22 +22,22 @@ class bot {
 		if (!key) throw new Error('[Key] Missing Data Key\n  You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!valuekey) throw new Error('[Value] Missing data\n  You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (typeof valuekey === 'object') {
-			const data = superagent.get(`${this.url}/quickonline/setobject?key=${key}&username=${this.username}&password=${this.password}&value=${JSON.stringify(valuekey)}`);
+			const data = fetch(`${this.url}/quickonline/setobject?key=${key}&username=${this.username}&password=${this.password}&value=${JSON.stringify(valuekey)}`).then(res => res.json());
 			if (!data) throw new Error('Invaild URL\n \n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-			if ((await data).body.success === 'false') {
-				if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-				if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).success === 'false') {
+				if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+				if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 			} else {
-				return (await data).body;
+				return (await data);
 			}
 		}
-		const data = superagent.get(`${this.url}/quickonline/set?key=${key}&value=${valuekey}&username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/set?key=${key}&value=${valuekey}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		} else {
-			return (await data).body;
+			return (await data);
 		}
 	}
 
@@ -49,26 +49,13 @@ class bot {
    */
 	async get(key) {
 		if (!key) throw new Error('[Key] Missing Data Key\n  You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = superagent.get(`${this.url}/quickonline/get?key=${key}&username=${this.username}&password=${this.password}`);
+		const data = await fetch(`${this.url}/quickonline/get?key=${key}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		function isJson(str) {
-			try {
-				JSON.parse(str);
-			} catch (e) {
-				return false;
-			}
-			return true;
-		}
-		const final_data = (await data).body.data;
-		if (isJson(final_data)) {
-			return JSON.parse(final_data);
-		} else {
-			return final_data;
-		}
+		return (await data).data;
 	}
 
 	/**
@@ -79,13 +66,13 @@ class bot {
    */
 	async delete(key) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = superagent.get(`${this.url}/quickonline/delete?key=${key}&username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/delete?key=${key}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		return (await data).body;
+		return (await data);
 	}
 
 	/**
@@ -101,14 +88,14 @@ class bot {
 		if (!value) throw new Error('[Value] Missing Data Value\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (isNaN(value)) throw new Error('[Value] must be a number\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = superagent.get(`${this.url}/quickonline/add?key=${key}&value=${value}&username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/add?key=${key}&value=${value}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.message === 'The key must contain a number value') throw new Error('The key must contain a number value, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).message === 'The key must contain a number value') throw new Error('The key must contain a number value, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		return (await data).body;
+		return (await data);
 	}
 
 	/**
@@ -122,14 +109,14 @@ class bot {
 		if (!value) throw new Error('[Value] Missing Data Value\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (isNaN(value)) throw new Error('[Value] must be a number\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = superagent.get(`${this.url}/quickonline/subtract?key=${key}&value=${value}&username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/subtract?key=${key}&value=${value}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.message === 'The key must contain a number value') throw new Error('The key must contain a number value, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).message === 'The key must contain a number value') throw new Error('The key must contain a number value, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		return (await data).body;
+		return (await data);
 	}
 
 	/**
@@ -140,13 +127,13 @@ class bot {
    */
 	async has(key) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = superagent.get(`${this.url}/quickonline/has?key=${key}&username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/has?key=${key}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		return (await data).body;
+		return (await data);
 	}
 
 	/**
@@ -159,16 +146,16 @@ class bot {
 	async push(key, value) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!value) throw new Error('[Value] Missing Data Value\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = superagent.get(`${this.url}/quickonline/push?key=${key}&data=${JSON.stringify(value)}&username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/push?key=${key}&data=${JSON.stringify(value)}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.message === 'The target must be an array') {
-				return (await data).body;
+		if ((await data).success === 'false') {
+			if ((await data).message === 'The target must be an array') {
+				return (await data);
 			}
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		return (await data).body;
+		return (await data);
 	}
 
 	/**
@@ -179,16 +166,16 @@ class bot {
 	async pull(key, value) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!value) throw new Error('[Value] Missing Data Value\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = superagent.get(`${this.url}/quickonline/pull?key=${key}&data=${value}&username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/pull?key=${key}&data=${value}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL\n need help? http://db.quickdevs.studio/discord ');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.message === 'The target must be an array') {
-				return (await data).body;
+		if ((await data).success === 'false') {
+			if ((await data).message === 'The target must be an array') {
+				return (await data);
 			}
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		return (await data).body;
+		return (await data);
 	}
 
 	/**
@@ -199,26 +186,13 @@ class bot {
    */
 	async fetch(key) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = superagent.get(`${this.url}/quickonline/fetch?key=${key}&username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/fetch?key=${key}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		function isJson(str) {
-			try {
-				JSON.parse(str);
-			} catch (e) {
-				return false;
-			}
-			return true;
-		}
-		const final_data = (await data).body;
-		if (isJson(final_data)) {
-			return JSON.parse(final_data);
-		} else {
-			return final_data;
-		}
+		return (await data);
 	}
 
 	/**
@@ -229,40 +203,28 @@ class bot {
    */
 	async startsWith(key, range) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = superagent.get(`${this.url}/quickonline/startswith?key=${key}&range=${range || 10}&username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/startswith?key=${key}&range=${range || 10}&username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		function isJson(str) {
-			try {
-				JSON.parse(str);
-			} catch (e) {
-				return false;
-			}
-			return true;
-		}
-		const final_data = (await data).body;
-		if (isJson(final_data)) {
-			return JSON.parse(final_data);
-		} else {
-			return final_data;
-		}
+		return (await data);
 	}
+
 
 	/**
    * Checks if the database url is working or not
    * @example dbo.check()
    */
 	async check() {
-		const data = superagent.get(`${this.url}/quickonline/check?username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/check?username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		return (await data).body;
+		return (await data);
 	}
 
 	/**
@@ -270,13 +232,13 @@ class bot {
    * @example dbo.all()
    */
 	async all() {
-		const data = superagent.get(`${this.url}/quickonline/all?username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/all?username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		return (await data).body;
+		return (await data);
 	}
 
 	/**
@@ -284,13 +246,13 @@ class bot {
    * @example dbo.stop()
    */
 	async stop() {
-		const data = superagent.get(`${this.url}/quickonline/stop?username=${this.username}&password=${this.password}`);
+		const data = fetch(`${this.url}/quickonline/stop?username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		return (await data).body;
+		return (await data);
 	}
 
 	/**
@@ -299,13 +261,13 @@ class bot {
    * @returns Number
    */
 	async ping() {
-		const data = superagent.get(this.url + `/quickonline/latency?username=${this.username}&password=${this.password}`);
+		const data = fetch(this.url + `/quickonline/latency?username=${this.username}&password=${this.password}`).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		if ((await data).body.success === 'false') {
-			if ((await data).body.error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
-			if ((await data).body.error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
+		if ((await data).success === 'false') {
+			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
+			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		const ping = Date.now() - parseInt((await data).body.ping) + 'ms';
+		const ping = Date.now() - parseInt((await data).ping) + 'ms';
 		return ping;
 	}
 }
