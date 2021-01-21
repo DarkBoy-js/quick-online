@@ -69,6 +69,10 @@ dbo.stop(); // stop your database. (You can use it as database restart with pm2.
 dbo.ping(); // returns your database latency.
 ```
 
+## **Updates**
+- Added support for [**glitch.com**](https://glitch.com)
+- Moved from `superagent` to `node-fetch`
+
 ## Reasons **Why** 📋
 
 - **Handy** and **simple** to use.
