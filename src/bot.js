@@ -28,7 +28,7 @@ class bot {
 			'Authorization': `${this.username} ${this.password}`,
 			'Key': key,
 			'Value': valuekey,
-			}
+			},
 			}).then(res => res.json());
 			if (!data) throw new Error('Invaild URL\n \n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 			if ((await data).success === 'false') {
@@ -44,7 +44,7 @@ class bot {
 			'Authorization': `${this.username} ${this.password}`,
 			'Key': key,
 			'Value': valuekey,
-			}
+			},
 			}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -68,7 +68,7 @@ class bot {
 			headers: {
 			'Authorization': `${this.username} ${this.password}`,
 			'Key': key,
-			}
+			},
 			}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -91,7 +91,7 @@ class bot {
 		headers: {
 		'Authorization': `${this.username} ${this.password}`,
 		'Key': key,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -120,7 +120,7 @@ class bot {
 		'Authorization': `${this.username} ${this.password}`,
 		'Key': key,
 		'Value': value,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -148,7 +148,7 @@ class bot {
 		'Authorization': `${this.username} ${this.password}`,
 		'Key': key,
 		'Value': value,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -172,7 +172,7 @@ class bot {
 		headers: {
 		'Authorization': `${this.username} ${this.password}`,
 		'Key': key,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -198,7 +198,7 @@ class bot {
 		'Authorization': `${this.username} ${this.password}`,
 		'Key': key,
 		'Data': value,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -225,7 +225,7 @@ class bot {
 		'Authorization': `${this.username} ${this.password}`,
 		'Key': key,
 		'Data': value,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL\n need help? http://db.quickdevs.studio/discord ');
 		if ((await data).success === 'false') {
@@ -251,7 +251,7 @@ class bot {
 		headers: {
 		'Authorization': `${this.username} ${this.password}`,
 		'Key': key,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -275,7 +275,7 @@ class bot {
 		'Authorization': `${this.username} ${this.password}`,
 		'Key': key,
 		'Range': range,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -295,7 +295,7 @@ class bot {
 		method: 'POST',
 		headers: {
 		'Authorization': `${this.username} ${this.password}`,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -314,7 +314,7 @@ class bot {
 		method: 'POST',
 		headers: {
 		'Authorization': `${this.username} ${this.password}`,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -333,7 +333,7 @@ class bot {
 		method: 'POST',
 		headers: {
 		'Authorization': `${this.username} ${this.password}`,
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
@@ -353,7 +353,7 @@ class bot {
 		method: 'POST',
 		headers: {
 		'Authorization': `${this.username} ${this.password}`
-		}
+		},
 		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {

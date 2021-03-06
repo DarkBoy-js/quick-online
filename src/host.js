@@ -582,7 +582,7 @@ class host {
       return Date.now() - start;
       }
 			async function _write() {
-      cosnt start = Date.now();
+      const start = Date.now();
       await db.set("LQ==", Buffer.from(start.toString()).toString("base64"));
       return Date.now() - start;
       }
