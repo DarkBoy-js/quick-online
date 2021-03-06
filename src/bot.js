@@ -221,7 +221,7 @@ class bot {
 		if (!value) throw new Error('[Value] Missing Data Value\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		const data = fetch(`${this.url}/quickonline/pull`, {
 		method: 'POST',
-		headers: { 
+		headers: {
 		'Authorization': `${this.username} ${this.password}`,
 		'Key': key,
 		'Data': value,
