@@ -20,7 +20,7 @@ class bot {
    */
 	async set(key, valuekey) {
 		if (!key) throw new Error('[Key] Missing Data Key\n  You can go to https://db.quickdevs.studio/ for help, Also you can join our Discord server : https://db.quickdevs.studio/discord');
-		if (!valuekey) throw new Error('[Value] Missing data\n  You can go to https://db.quickdevs.studio/ for help, Also you can join our Discord server : https://db.quickdevs.studio/discord');
+		if (!valuekey) throw new Error('[Value] Missing data\n You can go to https://db.quickdevs.studio/ for help, Also you can join our Discord server : https://db.quickdevs.studio/discord');
 		if (typeof valuekey === 'object') {
 			const data = fetch(`${this.url}/quickonline/setobject`, {
 			method: 'POST',
