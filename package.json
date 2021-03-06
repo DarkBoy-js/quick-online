@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon app.js",
-    "test": "nodemon test/test.js",
-    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
+    "test": "nodemon test/test.js"
   },
   "keywords": [
     "quick.db",

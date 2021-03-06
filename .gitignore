@@ -1,0 +1,6 @@
+.replit
+package-lock.json
+test/test.js
+test
+json.sqlite
+node_modules
