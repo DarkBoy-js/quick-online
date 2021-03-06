@@ -1,16 +1,22 @@
 {
   "name": "quickonline",
-  "version": "1.1.4",
-  "description": "Simple package to store quick.db data online.",
+  "version": "1.1.5",
+  "description": "Simple package to store quick.db data externally.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon app.js",
-    "test": "nodemon test/test.js"
+    "test": "nodemon test/test.js",
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
   },
   "keywords": [
     "quick.db",
-    "quickonline"
+    "quickonline",
+    "darkcodes",
+    "npm",
+    "online",
+    "db",
+    "database"
   ],
   "author": "Darkboy + Sujal Goel + AzizJaber + Lebyy_Dev",
   "license": "GPL-3.0",
@@ -23,12 +29,14 @@
   },
   "homepage": "https://db.quickdevs.studio/",
   "dependencies": {
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1",
-    "quick.db": "^7.1.3"
+    "express": "*",
+    "node-fetch": "*"
   },
   "devDependencies": {
-    "eslint": "^7.17.0",
-    "nodemon": "^2.0.7"
+    "eslint": "*",
+    "nodemon": "*"
+  },
+  "directories": {
+    "test": "test"
   }
 }

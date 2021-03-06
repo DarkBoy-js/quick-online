@@ -22,7 +22,14 @@ class bot {
 		if (!key) throw new Error('[Key] Missing Data Key\n  You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!valuekey) throw new Error('[Value] Missing data\n  You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (typeof valuekey === 'object') {
-			const data = fetch(`${this.url}/quickonline/setobject?key=${key}&username=${this.username}&password=${this.password}&value=${JSON.stringify(valuekey)}`).then(res => res.json());
+			const data = fetch(`${this.url}/quickonline/setobject`, {
+			method: 'POST',
+			headers: { 
+			'Authorization': `${this.username} ${this.password}`,
+			'Key': key,
+			'Value': valuekey
+			}
+			}).then(res => res.json());
 			if (!data) throw new Error('Invaild URL\n \n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 			if ((await data).success === 'false') {
 				if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -31,7 +38,14 @@ class bot {
 				return (await data);
 			}
 		}
-		const data = fetch(`${this.url}/quickonline/set?key=${key}&value=${valuekey}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/setobject`, {
+			method: 'POST',
+			headers: { 
+			'Authorization': `${this.username} ${this.password}`,
+			'Key': key,
+			'Value': valuekey
+			}
+			}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -49,7 +63,13 @@ class bot {
    */
 	async get(key) {
 		if (!key) throw new Error('[Key] Missing Data Key\n  You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = await fetch(`${this.url}/quickonline/get?key=${key}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/get`, {
+			method: 'POST',
+			headers: { 
+			'Authorization': `${this.username} ${this.password}`,
+			'Key': key
+			}
+			}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -66,7 +86,13 @@ class bot {
    */
 	async delete(key) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = fetch(`${this.url}/quickonline/delete?key=${key}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/delete`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`,
+		'Key': key
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -88,7 +114,14 @@ class bot {
 		if (!value) throw new Error('[Value] Missing Data Value\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (isNaN(value)) throw new Error('[Value] must be a number\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = fetch(`${this.url}/quickonline/add?key=${key}&value=${value}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/add`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`,
+		'Key': key,
+		'Value': value
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).message === 'The key must contain a number value') throw new Error('The key must contain a number value, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -109,7 +142,14 @@ class bot {
 		if (!value) throw new Error('[Value] Missing Data Value\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (isNaN(value)) throw new Error('[Value] must be a number\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = fetch(`${this.url}/quickonline/subtract?key=${key}&value=${value}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/subtract`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`,
+		'Key': key,
+		'Value': value
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).message === 'The key must contain a number value') throw new Error('The key must contain a number value, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -127,7 +167,13 @@ class bot {
    */
 	async has(key) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = fetch(`${this.url}/quickonline/has?key=${key}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/has`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`,
+		'Key': key
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -146,7 +192,14 @@ class bot {
 	async push(key, value) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!value) throw new Error('[Value] Missing Data Value\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = fetch(`${this.url}/quickonline/push?key=${key}&data=${JSON.stringify(value)}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/push`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`,
+		'Key': key,
+		'Data': value
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).message === 'The target must be an array') {
@@ -166,7 +219,14 @@ class bot {
 	async pull(key, value) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if (!value) throw new Error('[Value] Missing Data Value\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = fetch(`${this.url}/quickonline/pull?key=${key}&data=${value}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/pull`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`,
+		'Key': key,
+		'Data': value
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL\n need help? http://db.quickdevs.studio/discord ');
 		if ((await data).success === 'false') {
 			if ((await data).message === 'The target must be an array') {
@@ -186,7 +246,13 @@ class bot {
    */
 	async fetch(key) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = fetch(`${this.url}/quickonline/fetch?key=${key}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/fetch`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`,
+		'Key': key
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -203,7 +269,14 @@ class bot {
    */
 	async startsWith(key, range) {
 		if (!key) throw new Error('[Key] Missing Data Key\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
-		const data = fetch(`${this.url}/quickonline/startswith?key=${key}&range=${range || 10}&username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/startswith`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`,
+		'Key': key,
+		'Range': range
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -218,7 +291,12 @@ class bot {
    * @example dbo.check()
    */
 	async check() {
-		const data = fetch(`${this.url}/quickonline/check?username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/check`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -232,7 +310,12 @@ class bot {
    * @example dbo.all()
    */
 	async all() {
-		const data = fetch(`${this.url}/quickonline/all?username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/all`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -246,7 +329,12 @@ class bot {
    * @example dbo.stop()
    */
 	async stop() {
-		const data = fetch(`${this.url}/quickonline/stop?username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/check`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
@@ -261,14 +349,18 @@ class bot {
    * @returns Number
    */
 	async ping() {
-		const data = fetch(this.url + `/quickonline/latency?username=${this.username}&password=${this.password}`).then(res => res.json());
+		const data = fetch(`${this.url}/quickonline/latency`, {
+		method: 'POST',
+		headers: { 
+		'Authorization': `${this.username} ${this.password}`
+		}
+		}).then(res => res.json());
 		if (!data) throw new Error('Invaild URL.\n You can go to http://db.quickdevs.studio/ for help, Also you can join our Discord server : http://db.quickdevs.studio/discord');
 		if ((await data).success === 'false') {
 			if ((await data).error.errors.username === 'The provided username is invalid.') throw new Error('Invaild Username, need help? \nJoin http://db.quickdevs.studio/discord');
 			if ((await data).error.errors.password === 'The provided password is invalid.') throw new Error('Invaild Password, need help? \nJoin http://db.quickdevs.studio/discord');
 		}
-		const ping = Date.now() - parseInt((await data).ping) + 'ms';
-		return ping;
+		return data;
 	}
 }
 

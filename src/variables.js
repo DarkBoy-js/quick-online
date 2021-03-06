@@ -174,6 +174,7 @@ module.exports = {
 	},
 	has_data: {
 		success: 'true',
+		data: 'true',
 		message: 'This key contain some sort of data',
 		links: {
 			website: 'http://db.quickdevs.studio/',
@@ -184,6 +185,7 @@ module.exports = {
 	},
 	has_no_data: {
 		success: 'true',
+		data: 'false',
 		message: 'This key does not contain any sort of data',
 		links: {
 			website: 'http://db.quickdevs.studio/',
