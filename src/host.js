@@ -334,7 +334,7 @@ class host {
 			const data = db.get(key);
 			const final_data = {
 				key: key,
-				data: data
+				data: data,
 			};
 			res.set('Content-Type', 'application/json');
 			return res.send(JSON.stringify(final_data, null, 2));
@@ -463,7 +463,7 @@ class host {
 			if (data) {
 				res.set('Content-Type', 'application/json');
 				return res.send(JSON.stringify(variable.has_data, null, 2));
-			} 
+			}
 			if(!data) {
 				res.set('Content-Type', 'application/json');
 				return res.send(JSON.stringify(variable.has_no_data, null, 2));
@@ -577,30 +577,30 @@ class host {
 				return res.send(JSON.stringify(variable.invalid_password, null, 2));
 			}
 			async function _read() {
-      let start = Date.now();
+      const start = Date.now();
       await db.get("LQ==");
       return Date.now() - start;
       }
 			async function _write() {
-      let start = Date.now();
+      cosnt start = Date.now();
       await db.set("LQ==", Buffer.from(start.toString()).toString("base64"));
       return Date.now() - start;
       }
 			async function _delete() {
-      let start = Date.now();
+      const start = Date.now();
       await db.delete("LQ==");
       return Date.now() - start;
       }
-			let readping = await _read()
-			let writeping = await _write()
-			let deleteping = await _delete()
-			let averageping = (readping + writeping + deleteping) / 3
+			const readping = await _read();
+			const writeping = await _write();
+			const deleteping = await _delete();
+			const averageping = (readping + writeping + deleteping) / 3;
 			const ltc = {
 				success: 'true',
 				read: readping,
 				write: writeping,
 				delete: deleteping,
-				average: averageping
+				average: averageping,
 			};
 			res.set('Content-Type', 'application/json');
 			return res.send(JSON.stringify(ltc, null, 2));
