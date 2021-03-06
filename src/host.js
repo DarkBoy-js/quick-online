@@ -1,10 +1,10 @@
 class host {
 	constructor(data) {
-		if (!data) throw new Error('Missing data array need help? http://db.quickdevs.studio/discord');
+		if (!data) throw new Error('Missing data array need help? https://db.quickdevs.studio/discord');
 		if (!data.port) data.port = 8080;
-		if (!data.username) throw new Error('Missing Username,, need help? join http://db.quickdevs.studio/discord');
-		if (!data.password) throw new Error('Missing Password, need help? join http://db.quickdevs.studio/discord');
-		if(!data.db) throw new Error('Missing Database, need help? join http://db.quickdevs.studio/discord');
+		if (!data.username) throw new Error('Missing Username,, need help? join https://db.quickdevs.studio/discord');
+		if (!data.password) throw new Error('Missing Password, need help? join https://db.quickdevs.studio/discord');
+		if(!data.db) throw new Error('Missing Database, need help? join https://db.quickdevs.studio/discord');
 		this.port = data.port;
 		this.username = data.username;
 		this.password = data.password;
